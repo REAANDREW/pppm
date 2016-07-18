@@ -1,7 +1,6 @@
 # Security
 
-## Mutual authentication
+[t: mutual-authentication]
 
-## Claim based authorization
+[t: claim-based-authorization]
 
-## Different security zones

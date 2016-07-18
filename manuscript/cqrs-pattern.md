@@ -1,3 +1,0 @@
-# CQRS Patterns
-
-[t: cqrs]

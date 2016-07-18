@@ -1,32 +1,10 @@
 # Operability
 
-## Correlation IDs
+[t: correlation-id]
 
-- Zipkin
-- Reconciliation
+[t: monitoring]
 
-## How, Where, What, When, Why
+[t: alerting]
 
-## Logging
+[t: error-catalog]
 
-- Logging Agent
-- Log Locally
-- Push to Central
-
-## Monitoring
-
-## Alerting
-
-## Error Catalog
-
-### Error code convention for tracability
-
-> Effective Monitoring and Alerting
-> by Slawek Ligus
-
-## Hosting
-
-- Self host
-- Reverse proxy
-- Configuration
-- Examples with tech

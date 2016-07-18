@@ -1,11 +1,3 @@
 # Stability
 
-## Decoupling Middleware
-
-## Logging
-
-- Log rotation
-- Buffering
-
-
-
+[t: decoupling-middleware]

@@ -1,14 +1,8 @@
 # Deployment
 
-## Packaging
+[t: deployment-classifications.md]
 
-- deb, rpm
-- containers
+[t: containers]
 
-## Containers
+[t: service-discovery]
 
-## Service Discovery
-
-### Server based
-
-### Client based

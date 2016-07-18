@@ -1,9 +1,7 @@
 # Requirements
 
-## Domain Analysis
+[t: event-storming]
 
-- Event Storming over noun discovery
+[t: functional-requirements]
 
-## Functional
-
-## Non-Functional
+[t: non-functional-requirements]

@@ -1,13 +1,7 @@
 introduction.md
 monolith-classifications.md
-functional.md
-cqrs-pattern.md
-event-sourcing-pattern.md
-hexaganol-pattern.md
-state-pattern.md
+functional-patterns.md
 deployment.md
-testing-functional.md
-non-functional.md
 operability.md
 availability.md
 capacity.md

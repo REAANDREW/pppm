@@ -1,10 +1,6 @@
 # Capacity
 
-## Bulk Head
+[t: bulk-head]
 
-- Connection pooling
-- Throttling
-- Handshaking
-
-## Circuit Breaker
+[t: circuit-breaker]
 
