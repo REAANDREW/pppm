@@ -1,7 +1,8 @@
 # Availability
 
-[t: load-balancing]
 
-[t: scaling]
 
-[t: health-checks]
+## Health Checks
+
+- Alive vs Ready
+- Layer 3, 4 and 7 health checks and the pitfalls of each 

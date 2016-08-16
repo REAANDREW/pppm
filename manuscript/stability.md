@@ -1,3 +1,2 @@
 # Stability
 
-[t: decoupling-middleware]

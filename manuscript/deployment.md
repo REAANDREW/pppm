@@ -2,7 +2,11 @@
 
 [t: deployment-classifications.md]
 
-[t: containers]
+## Containers
 
-[t: service-discovery]
+## Service Discovery
+
+### Server based
+
+### Client based
 

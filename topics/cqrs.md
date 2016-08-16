@@ -1,11 +1,9 @@
-# Command query responsibility segregation (CQRS)
+## Command query responsibility segregation (CQRS)
 
 CQRS separates the responsibility of handling queries from the responsibility of handling commands.  
 
 MOVE THIS TO ANOTHER SECTION
 ## Definitions of terms
-
-I the following examples we use the following systems
 
 - Database
 - Query Service
@@ -19,24 +17,7 @@ Both the Query Service and the Command Service have a separate API.  A Service c
 
 The command service contains the logic to update the database in a consistent manner.  The query service contains the logic in order to read the database and return the data in the relevant shape.
 
-```
-+----------+      +----------------------------------+
-|          |      | Process                          |
-|          |      |                                  |
-|          |      |   +-----------------+ +-----+    |
-|          | <--------+                 | |     |    |
-|          |      |   |  Query Service  | | API | <-------+
-|          +--------> |                 | |     |    |    |    +------------+
-| Database |      |   +-----------------+ +-----+    |    |    |            |
-|          |      |                                  |    +----+  CONSUMER  |
-|          |      |   +-----------------+ +-----+    |    |    |            |
-|          |      |   |                 | |     |    |    |    +------------+
-|          | <--------+ Command Service | | API | <-------+
-|          |      |   |                 | |     |    |
-|          |      |   +-----------------+ +-----+    |
-|          |      |                                  |
-+----------+      +----------------------------------+
-```
+![](images/cqrs-no-message-bus.png)
 
 ## Separate processes with a single database
 
