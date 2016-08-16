@@ -73,5 +73,4 @@ This is only related to the segregation of the responsibilities it does not have
 ![](images/cqrs-with-message-bus-and-cache.png)
 
 
-[t: heaxaganol-architecture]
 

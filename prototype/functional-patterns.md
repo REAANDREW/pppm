@@ -6,6 +6,6 @@
 
 [t: state-machines]
 
-[t: heaxaganol-architecture]
+[t: hexaganol-architecture]
 
 [t: application-logging]
