@@ -1,0 +1,13 @@
+introduction.md
+monolith-classifications.md
+functional-patterns.md
+deployment.md
+operability.md
+availability.md
+capacity.md
+networking.md
+security.md
+stability.md
+transparency.md
+testing-non-functional.md
+test-harness.md
