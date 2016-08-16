@@ -55,35 +55,7 @@ The same technology could be used for the read and write stores or different tec
 
 The owness is on the Query Service here to transform the data on write and update the read store so that there are no service transformations required on read, making the reads quicker and less expensive on CPU etc...
 
-```
-+-----------------------+
-| Databases             |   +----------------------------------+
-|   +---------------+   |   | Process                          |
-|   |Query Store    |   |   |   +-----------------+ +-----+    |
-|   |               |   |   |   |                 | |     |    |
-|   |  Reads Data   | <--------->  Query Service  | | API | <---------+
-|   |               |   |   |   |                 | |     |    |      |
-|   |  Updates Data | <------------------^--------+ +-----+    |      |
-|   |               |   |   +----------------------------------+      |
-|   |               |   |                | Subscribes to Change Event |
-|   |               |   |   +----------------------------------+      |
-|   +---------------+   |   | Process    |                     |      |  -------------+
-|                       |   |   +--------+-----------------+   |      |  |            |
-|                       |   |   |                          |   |      +--+  CONSUMER  |
-|   +---------------+   |   |   |       Event Broker       |   |      |  |            |
-|   |Write Store    |   |   |   |                          |   |      |  +------------+
-|   |               |   |   |   +--------^-----------------+   |      |
-|   |               |   |   +----------------------------------+      |
-|   |               |   |                | Publishes Change Event     |
-|   |               |   |   +----------------------------------+      |
-|   |               |   |   | Process    |                     |      |
-|   |               |   |   |   +--------+--------+ +-----+    |      |
-|   |               |   |   |   |                 | |     |    |      |
-|   |               | <---------+ Command Service | | API | <---------+
-|   +---------------+   |   |   |                 | |     |    |
-|                       |   |   +-----------------+ +-----+    |
-+-----------------------+   +----------------------------------+
-```
+![](images/cqrs-with-message-bus.png)
 
 The application architecture will determine the structure of the write store e.g.  
 - Using Active Record then a relational data strore would fit well
@@ -91,6 +63,14 @@ The application architecture will determine the structure of the write store e.g
 
 
 This is only related to the segregation of the responsibilities it does not have any bearing on the architecture of the query or the command service only that they are separate.
+
+## Separate processes with a separate database and a separate updater
+
+![](images/cqrs-with-message-bus-and-updater.png)
+
+## Separate processes with a separate database using events to invalidate a cache
+
+![](images/cqrs-with-message-bus-and-cache.png)
 
 
 [t: heaxaganol-architecture]
