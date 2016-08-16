@@ -26,53 +26,13 @@ The command service contains the logic to update the database in a consistent ma
 
 A modification to the above pattern is using a different process for the Query Service and the Command Service.  This separation could be done for performance reasons in that you query service could have different throughput requirements than your command service.   With this approach you could scale the two different services independently to match the required throughput for each.  This assumes that you have a suitable setup for your database so that you do not end up with unbalanced resources and overload the database itself.
 
-```
-+----------+      +----------------------------------+
-|          |      | Process                          |
-|          |      |   +-----------------+ +-----+    |
-|          | <--------+                 | |     |    |
-|          |      |   |  Query Service  | | API | <-------+
-|          +--------> |                 | |     |    |    |
-|          |      |   +-----------------+ +-----+    |    |    +------------+
-|          |      +----------------------------------+    |    |            |
-| Database |                                              +----+  CONSUMER  |
-|          |      +----------------------------------+    |    |            |
-|          |      | Process                          |    |    +------------+
-|          |      |   +-----------------+ +-----+    |    |
-|          |      |   |                 | |     |    |    |
-|          | <--------+ Command Service | | API | <-------+
-|          |      |   |                 | |     |    |
-|          |      |   +-----------------+ +-----+    |
-+----------+      +----------------------------------+
-```
+![](images/cqrs-no-message-bus-separate-processes.png)
 
 ## Separate processes with a database cluster with read replicas
 
 One variation of this setup is when the database supports clustering and you can ensure your query service instances connect to read only replicates where your command service will be writing to the master database.  This is a common depoyment scenario for many different types of databases and relies on the database itself replicating the data from master to the replicas.
 
-```
-+-----------------------+
-| Database Cluster      |
-|                       |
-|     +-----------+     |   +----------------------------------+
-|    +------------|     |   | Process                          |
-|    ||          ||     |   |   +-----------------+ +-----+    |
-|    || Replicas || <-----------+                 | |     |    |
-|    ||          ||     |   |   |  Query Service  | | API | <-------+
-|    ||          |------------> |                 | |     |    |    |
-|    |------------+     |   |   +-----------------+ +-----+    |    |    +------------+
-|    +-----------+      |   +----------------------------------+    |    |            |
-|           ^           |                                           +----+  CONSUMER  |
-|           |           |   +----------------------------------+    |    |            |
-|           |           |   | Process                          |    |    +------------+
-|    +------+-----+     |   |   +-----------------+ +-----+    |    |
-|    |            |     |   |   |                 | |     |    |    |
-|    |   Master   | <-----------+ Command Service | | API | <-------+
-|    |            |     |   |   |                 | |     |    |
-|    +------------+     |   |   +-----------------+ +-----+    |
-|                       |   +----------------------------------+
-+-----------------------+
-```
+![](images/cqrs-no-message-bus-read-replicas.png)
 
 All of the examples so far need to use the same database technology and the Query Service needs to contain the relevant logic to satisfy the different queries which it will handle.
 
